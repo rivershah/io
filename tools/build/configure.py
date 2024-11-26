@@ -105,14 +105,10 @@ def write_config():
             for argv in sys.argv[1:]:
                 if argv == "--cuda":
                     bazel_rc.write('build --action_env TF_NEED_CUDA="1"\n')
-                    bazel_rc.write(
-                        'build --action_env CUDA_TOOLKIT_PATH="/usr/local/cuda"\n'
-                    )
-                    bazel_rc.write(
-                        'build --action_env CUDNN_INSTALL_PATH="/usr/lib/x86_64-linux-gnu"\n'
-                    )
-                    bazel_rc.write('build --action_env TF_CUDA_VERSION="10.1"\n')
-                    bazel_rc.write('build --action_env TF_CUDNN_VERSION="7"\n')
+                    bazel_rc.write('build --action_env CUDA_TOOLKIT_PATH="/usr/local/cuda"\n')
+                    bazel_rc.write('build --action_env CUDNN_INSTALL_PATH="/usr/lib/x86_64-linux-gnu"\n')
+                    bazel_rc.write('build --action_env TF_CUDA_VERSION="12.3"\n')
+                    bazel_rc.write('build --action_env TF_CUDNN_VERSION="8"\n')
             # Needed for tf rules
             bazel_rc.write("build --experimental_repo_remote_exec\n")
             # Enable platform specific config
@@ -135,12 +131,6 @@ def write_config():
             bazel_rc.write("build:optimization --copt=-msse4.2\n")
             # bazel_rc.write("build:optimization --copt=-mavx\n")
             bazel_rc.write("build:optimization --compilation_mode=opt\n")
-            bazel_rc.write(
-                "build:linux_ci --crosstool_top=//third_party/toolchains/gcc7_manylinux2010:toolchain\n"
-            )
-            bazel_rc.write(
-                "build:linux_ci_gpu --crosstool_top=//third_party/toolchains/gcc7_manylinux2010-nvcc-cuda10.1:toolchain\n"
-            )
             bazel_rc.write("build:linux --copt=-Wno-error=stringop-overflow=\n")
             bazel_rc.write("build:linux --copt=-Wno-error\n")
             # For a cleaner output

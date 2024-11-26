@@ -82,8 +82,16 @@ cc_library(
 cc_library(
     name = "tf_tsl_header_lib",
     hdrs = [":tf_tsl_header_include"],
-    include_prefix = "tensorflow/tsl/c",
+    include_prefix = "tensorflow/tsl/platform",
     strip_include_prefix = "include_tsl",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "tf_xla_header_lib",
+    hdrs = [":tf_xla_header_include"],
+    include_prefix = "xla",
+    strip_include_prefix = "include_xla",
     visibility = ["//visibility:public"],
 )
 
@@ -104,4 +112,5 @@ cc_library(
 %{TF_HEADER_GENRULE}
 %{TF_C_HEADER_GENRULE}
 %{TF_TSL_HEADER_GENRULE}
+%{TF_XLA_HEADER_GENRULE}
 %{TF_SHARED_LIBRARY_GENRULE}
