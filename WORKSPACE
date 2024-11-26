@@ -1,7 +1,6 @@
 workspace(name = "org_tensorflow_io")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-load("//:cuda.bzl", "if_cuda", "cuda_is_configured")
 
 # Note: zlib is placed earlier as tensorflow's zlib does not include unzip
 http_archive(
@@ -98,7 +97,6 @@ http_archive(
         """sed -i.bak 's/cython-3.0.3/cython-3.0.0a11/g' tensorflow/workspace2.bzl""",
         """sed -i.bak 's/3.0.3.tar.gz/3.0.0a11.tar.gz/g' tensorflow/workspace2.bzl""",
         """sed -i.bak 's/0c2eae8a4ceab7955be1e11a4ddc5dcc3aa06ce22ad594262f1555b9d10667f0/08dbdb6aa003f03e65879de8f899f87c8c718cd874a31ae9c29f8726da2f5ab0/g' tensorflow/workspace2.bzl""",
-        """sed -i.bak '1i load("@org_tensorflow_io//:cuda.bzl", "if_cuda")' xla/tsl/tsl.bzl""",
     ],
     sha256 = "d7876f4bb0235cac60eb6316392a7c48676729860da1ab659fb440379ad5186d",
     strip_prefix = "tensorflow-2.18.0",
