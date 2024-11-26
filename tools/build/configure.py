@@ -135,7 +135,7 @@ def write_config():
                 "build:linux_ci --crosstool_top=//third_party/toolchains/gcc7_manylinux2010:toolchain\n"
             )
             bazel_rc.write(
-                "build:linux_ci_gpu --crosstool_top=//third_party/toolchains/gcc7_manylinux2010-nvcc-cuda10.1:toolchain\n"
+                "build:linux_ci_gpu --crosstool_top=//third_party/toolchains/gcc7_manylinux2010-nvcc-12.3:toolchain\n"
             )
             bazel_rc.write("build:linux --copt=-Wno-error=stringop-overflow=\n")
             bazel_rc.write("build:linux --copt=-Wno-error\n")
