@@ -1,6 +1,7 @@
 workspace(name = "org_tensorflow_io")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("//:cuda.bzl", "if_cuda", "cuda_is_configured")
 
 # Note: zlib is placed earlier as tensorflow's zlib does not include unzip
 http_archive(
