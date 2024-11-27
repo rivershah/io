@@ -222,10 +222,6 @@ load("@local_xla//third_party/py:python_init_toolchains.bzl", "python_init_toolc
 
 python_init_toolchains()
 
-load("@local_xla//third_party/py:python_init_pip.bzl", "python_init_pip")
-
-python_init_pip()
-
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 
 http_archive(
