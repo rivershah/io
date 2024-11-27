@@ -196,6 +196,36 @@ load(
 nccl_configure(name = "local_config_nccl")
 
 
+load("@local_xla//third_party/py:python_init_rules.bzl", "python_init_rules")
+
+python_init_rules()
+
+load("@local_xla//third_party/py:python_init_repositories.bzl", "python_init_repositories")
+
+python_init_repositories(
+    default_python_version = "system",
+    local_wheel_dist_folder = "dist",
+    local_wheel_inclusion_list = [
+        "tensorflow*",
+        "tf_nightly*",
+    ],
+    local_wheel_workspaces = ["//:WORKSPACE"],
+    requirements = {
+        "3.9": "//:requirements_lock_3_9.txt",
+        "3.10": "//:requirements_lock_3_10.txt",
+        "3.11": "//:requirements_lock_3_11.txt",
+        "3.12": "//:requirements_lock_3_12.txt",
+    },
+)
+
+load("@local_xla//third_party/py:python_init_toolchains.bzl", "python_init_toolchains")
+
+python_init_toolchains()
+
+load("@local_xla//third_party/py:python_init_pip.bzl", "python_init_pip")
+
+python_init_pip()
+
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 
 http_archive(
