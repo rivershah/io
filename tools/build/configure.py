@@ -131,12 +131,6 @@ def write_config():
             bazel_rc.write("build:optimization --copt=-msse4.2\n")
             # bazel_rc.write("build:optimization --copt=-mavx\n")
             bazel_rc.write("build:optimization --compilation_mode=opt\n")
-            bazel_rc.write(
-                "build:linux_ci --crosstool_top=//third_party/toolchains/gcc7_manylinux2010:toolchain\n"
-            )
-            bazel_rc.write(
-                "build:linux_ci_gpu --crosstool_top=//third_party/toolchains/gcc7_manylinux2010-nvcc-12.3:toolchain\n"
-            )
             bazel_rc.write("build:linux --copt=-Wno-error=stringop-overflow=\n")
             bazel_rc.write("build:linux --copt=-Wno-error\n")
             # For a cleaner output
