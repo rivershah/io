@@ -90,8 +90,8 @@ cc_library(
 cc_library(
     name = "tf_xla_header_lib",
     hdrs = [":tf_xla_header_include"],
-    include_prefix = "",
-    strip_include_prefix = "",
+    include_prefix = "xla",
+    strip_include_prefix = "include_xla",
     visibility = ["//visibility:public"],
 )
 
