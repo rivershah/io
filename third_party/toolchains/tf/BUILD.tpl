@@ -73,10 +73,7 @@ genrule(
 
 cc_library(
     name = "tf_c_header_lib",
-    hdrs = [
-        ":tf_c_header_include",
-        "@local_xla//xla:headers",
-    ],
+    hdrs = [":tf_c_header_include"],
     include_prefix = "tensorflow/c",
     strip_include_prefix = "include_c",
     visibility = ["//visibility:public"],
