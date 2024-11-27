@@ -88,6 +88,14 @@ cc_library(
 )
 
 cc_library(
+    name = "tf_xla_header_lib",
+    hdrs = [":tf_xla_header_include"],
+    include_prefix = "",
+    strip_include_prefix = "",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
     name = "libtensorflow_framework",
     srcs = select({
         "@bazel_tools//src/conditions:windows": [
@@ -104,4 +112,5 @@ cc_library(
 %{TF_HEADER_GENRULE}
 %{TF_C_HEADER_GENRULE}
 %{TF_TSL_HEADER_GENRULE}
+%{TF_XLA_HEADER_GENRULE}
 %{TF_SHARED_LIBRARY_GENRULE}

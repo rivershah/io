@@ -188,6 +188,12 @@ def _tf_pip_impl(repository_ctx):
         "include_tsl",
         "tf_tsl_header_include",
     )
+    tf_xla_header_rule = _symlink_genrule_for_dir(
+        repository_ctx,
+        tf_header_dir + "/xla/",
+        "include_xla",
+        "tf_xla_header_include",
+    )
 
     tf_shared_library_dir = repository_ctx.os.environ[_TF_SHARED_LIBRARY_DIR]
     tf_shared_library_name = repository_ctx.os.environ[_TF_SHARED_LIBRARY_NAME]
@@ -206,6 +212,7 @@ def _tf_pip_impl(repository_ctx):
         "%{TF_HEADER_GENRULE}": tf_header_rule,
         "%{TF_C_HEADER_GENRULE}": tf_c_header_rule,
         "%{TF_TSL_HEADER_GENRULE}": tf_tsl_header_rule,
+        "%{TF_XLA_HEADER_GENRULE}": tf_xla_header_rule,
         "%{TF_SHARED_LIBRARY_GENRULE}": tf_shared_library_rule,
     })
 
