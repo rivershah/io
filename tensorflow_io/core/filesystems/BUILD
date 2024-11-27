@@ -20,7 +20,8 @@ cc_library(
         ],
     }),
     copts = tf_io_copts(),
-    linkstatic = True,
+    linkstatic = False,
+    linkshared = True,
     deps = [
         "@local_config_tf//:tf_c_header_lib",
         "@local_config_tf//:tf_tsl_header_lib",
@@ -35,7 +36,8 @@ cc_library(
         "filesystem_plugins.cc",
     ],
     copts = tf_io_copts(),
-    linkstatic = True,
+    linkstatic = False,
+    linkshared = True,
     deps = [
         "//tensorflow_io/core/filesystems/az",
         "//tensorflow_io/core/filesystems/hdfs",
