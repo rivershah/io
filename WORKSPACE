@@ -2,18 +2,18 @@ workspace(name = "org_tensorflow_io")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-# Note: zlib is placed earlier as tensorflow's zlib does not include unzip
-http_archive(
-    name = "zlib",
-    build_file = "//third_party:zlib.BUILD",
-    patch_cmds = ["""sed -i.bak '29i\\'$'\\n#include<zconf.h>\\n' contrib/minizip/crypt.h"""],
-    sha256 = "b3a24de97a8fdbc835b9833169501030b8977031bcb54b3b3ac13740f846ab30",
-    strip_prefix = "zlib-1.2.13",
-    urls = [
-        "https://storage.googleapis.com/mirror.tensorflow.org/zlib.net/zlib-1.2.13.tar.gz",
-        "https://zlib.net/zlib-1.2.13.tar.gz",
-    ],
-)
+# # Note: zlib is placed earlier as tensorflow's zlib does not include unzip
+# http_archive(
+#     name = "zlib",
+#     build_file = "//third_party:zlib.BUILD",
+#     patch_cmds = ["""sed -i.bak '29i\\'$'\\n#include<zconf.h>\\n' contrib/minizip/crypt.h"""],
+#     sha256 = "b3a24de97a8fdbc835b9833169501030b8977031bcb54b3b3ac13740f846ab30",
+#     strip_prefix = "zlib-1.3.1",
+#     urls = [
+#         "https://storage.googleapis.com/mirror.tensorflow.org/zlib.net/zlib-1.2.13.tar.gz",
+#         "https://zlib.net/zlib-1.3.1.tar.gz",
+#     ],
+# )
 
 # Note: snappy is placed earlier as tensorflow's snappy does not include snappy-c
 http_archive(
