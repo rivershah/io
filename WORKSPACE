@@ -96,10 +96,10 @@ http_archive(
         """sed -i.bak 's/3.0.3.tar.gz/3.0.0a11.tar.gz/g' tensorflow/workspace2.bzl""",
         """sed -i.bak 's/0c2eae8a4ceab7955be1e11a4ddc5dcc3aa06ce22ad594262f1555b9d10667f0/08dbdb6aa003f03e65879de8f899f87c8c718cd874a31ae9c29f8726da2f5ab0/g' tensorflow/workspace2.bzl""",
     ],
-    sha256 = "d7876f4bb0235cac60eb6316392a7c48676729860da1ab659fb440379ad5186d",
-    strip_prefix = "tensorflow-2.18.0",
+    sha256 = "4691b18e8c914cdf6759b80f1b3b7f3e17be41099607ed0143134f38836d058e",
+    strip_prefix = "tensorflow-2.19.0",
     urls = [
-        "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.18.0.tar.gz",
+        "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.19.0.tar.gz",
     ],
 )
 
